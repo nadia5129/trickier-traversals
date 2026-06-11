@@ -36,39 +36,6 @@ public class Traversals {
         return 1 + countInternalNodes(node.left) + countInternalNodes(node.right);
     }
 }
-  
-
-  /**
-   * Creates a string by concatenating the string representation of each node's value
-   * in a post-order traversal of the tree. For example, if the post-order visitation
-   * encounters values "a", "b", and "c" in that order, the result is "abc".
-   * If node is null, returns an empty string.
-   *
-   * @param node the node of the tree
-   * @param <T>  the type of values stored in the tree
-   * @return a post-order traversal string, or an empty string if the tree is null
-   */
-  public static <T> String buildPostOrderString(TreeNode<T> node) {
-    if(node == null){
-       return "" ; 
-      } //post order left right root
-      else{ 
-     
-  /**
-   * Creates a string by concatenating the string representation of each node's value
-   * in a post-order traversal of the tree. For example, if the post-order visitation
-   * encounters values "a", "b", and "c" in that order, the result is "abc".
-   * If node is null, returns an empty string.
-   *
-   * @param node the node of the tree
-   * @param <T>  the type of values stored in the tree
-   * @return a post-order traversal string, or an empty string if the tree is null
-   */
-  public static <T> String buildPostOrderString(TreeNode<T> node) {
-    if(node == null){
-       return "" ; 
-      } //post order left right root
-      else{ 
    
   /**
    * Creates a string by concatenating the string representation of each node's value
@@ -83,12 +50,13 @@ public class Traversals {
   public static <T> String buildPostOrderString(TreeNode<T> node) {
     if(node == null){
        return "" ; 
-      } //post order left right root
+      } //
       else{ 
  return buildPostOrderString(node.left)
      + buildPostOrderString(node.right)
      + node.value;
   }
+}
 
   /**
    * Collects the values of all nodes in the tree level by level, from top to bottom.
@@ -99,8 +67,30 @@ public class Traversals {
    * @return a list of node values in a top-to-bottom order, or an empty list if the tree is null
    */
   public static <T> List<T> collectLevelOrderValues(TreeNode<T> node) {
-    return null;
-  }
+    List<T> result = new ArrayList<>();
+
+    if (node == null) {
+        return result;
+    }
+    Queue<TreeNode<T>> queue = new LinkedList<>();
+    queue.add(node);
+
+    while (!queue.isEmpty()) {
+        TreeNode<T> current = queue.remove();
+
+        result.add(current.value);
+
+        if (current.left != null) {
+            queue.add(current.left);
+        }
+
+        if (current.right != null) {
+            queue.add(current.right);
+        }
+    }
+
+    return result;
+}
 
   /**
    * Counts the distinct values in the given tree.
