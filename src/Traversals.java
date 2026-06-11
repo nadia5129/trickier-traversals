@@ -49,7 +49,45 @@ public class Traversals {
    * @return a post-order traversal string, or an empty string if the tree is null
    */
   public static <T> String buildPostOrderString(TreeNode<T> node) {
-    return null;
+    if(node == null){
+       return "" ; 
+      } //post order left right root
+      else{ 
+     
+  /**
+   * Creates a string by concatenating the string representation of each node's value
+   * in a post-order traversal of the tree. For example, if the post-order visitation
+   * encounters values "a", "b", and "c" in that order, the result is "abc".
+   * If node is null, returns an empty string.
+   *
+   * @param node the node of the tree
+   * @param <T>  the type of values stored in the tree
+   * @return a post-order traversal string, or an empty string if the tree is null
+   */
+  public static <T> String buildPostOrderString(TreeNode<T> node) {
+    if(node == null){
+       return "" ; 
+      } //post order left right root
+      else{ 
+   
+  /**
+   * Creates a string by concatenating the string representation of each node's value
+   * in a post-order traversal of the tree. For example, if the post-order visitation
+   * encounters values "a", "b", and "c" in that order, the result is "abc".
+   * If node is null, returns an empty string.
+   *
+   * @param node the node of the tree
+   * @param <T>  the type of values stored in the tree
+   * @return a post-order traversal string, or an empty string if the tree is null
+   */
+  public static <T> String buildPostOrderString(TreeNode<T> node) {
+    if(node == null){
+       return "" ; 
+      } //post order left right root
+      else{ 
+ return buildPostOrderString(node.left)
+     + buildPostOrderString(node.right)
+     + node.value;
   }
 
   /**
